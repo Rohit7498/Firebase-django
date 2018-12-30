@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div{
+        position: absolute;
+        right: 10px;
+        top: 1px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div >
+        <button type="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
+    </div>
+    Welcome {{ email }}!!
+    <br><br>
+    <button type="button" name="" onclick="location.href='{% url 'create' %}'">Create Report</button>
+    <button type="button" name="" onclick="location.href='{% url 'check' %}'">Check Report</button>
+  </body>
+</html>

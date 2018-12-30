@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SignIn</title>
+    <style media="screen">
+      div{
+        position : absolute;
+        top : 10px;
+        right : 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Create Daily Progress Report</h2>
+    <form action="/post_create/" method="post">
+      {% csrf_token %}
+      Work Assigned :
+      <input type="text" name="work" value="" required>
+      <br><br>
+      Progress :<br>
+      <textarea name="progress" rows="5" cols="40" required></textarea><br><br>
+      <input type="file" name="file[]" id="files" required>
+      <input type="hidden" name="url" id="url">
+      <button type="button" name="" onclick="uploadimage()">Upload</button><br><br>
+
+      <input type="submit" name="" value="Submit">
+      <div class="">
+          <button type="button" name="button" onclick="location.href='{% url 'logout' %}'">logout</button>
+      </div>
+    </form>
+  </body>
+
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+
+<script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCWaHZ66-gfABcfNowc6Jo-ynwkkp3skWM",
+      authDomain: "cpanel-cc891.firebaseapp.com",
+      databaseURL: "https://cpanel-cc891.firebaseio.com",
+      projectId: "cpanel-cc891",
+      storageBucket: "cpanel-cc891.appspot.com",
+      messagingSenderId: "729933585427"
+    };
+    firebase.initializeApp(config);
+
+    function uploadimage(){
+      var storage = firebase.storage();
+      //getting element by id
+      var file = document.getElementById("files").files[0];
+
+      var storageRef = storage.ref();
+
+      var thisref = storageRef.child(file.name).put(file);
+
+      thisref.on("state_changed", function(snapshot){
+      console.log("file uploaded succesfully");
+      },
+
+      function(error){
+
+      },
+
+    function() {
+  // Upload completed successfully, now we can get the download URL
+    thisref.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+    console.log('File available at', downloadURL);
+    document.getElementById("url").value = downloadURL;
+    alert("file uploaded succesfully");
+  });
+  });
+
+}
+</script>
+
+</html>

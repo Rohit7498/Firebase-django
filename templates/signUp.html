@@ -1,0 +1,26 @@
+{% if messg %}
+  <script>
+    alert('{{ messg }}')
+  </script>
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SignUP</title>
+  </head>
+  <body>
+    <form action="/postSignUp/" method="post">
+        {% csrf_token %}
+        Username :
+        <input type="text" name="name" value="">
+        <br><br>
+        Email :
+        <input type="email" name="email" value=""><br><br>
+        Password :
+        <input type="password" name="pass" value=""><br><br>
+        <input type="submit" value="SignUp">
+    </form>
+  </body>
+</html>

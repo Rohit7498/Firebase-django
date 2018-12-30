@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div{
+        position: absolute;
+        right: 10px;
+        top: 1px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div >
+        <button type="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
+    </div>
+    Welcome {{ email }}!!
+    <br><br>
+    Date : {{d}}<br>
+    Work : {{w}}<br>
+    Progress : {{p}}<br>
+    Image Output :<br>
+    <img src="{{i}}" alt="" width="20%" height="20%">
+</html>
