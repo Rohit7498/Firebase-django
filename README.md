@@ -35,6 +35,8 @@ This app authenticates users through firebase and also lets users create and che
   </ul>
   <h3>Insatll Django==2.1 using pip in vitualenv created by pipenv</h3>
   
+  # Let's see how does it work:
+  
   ## Firebase Database tree:
   
   ![Imgur](https://i.imgur.com/n1s9DKF.png)
