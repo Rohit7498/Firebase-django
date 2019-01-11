@@ -60,7 +60,7 @@ This app authenticates users through firebase and also lets users create and che
   
   Reports page:
   
-  ![Imgur](https://i.imgur.com/zlrf6Ak.png)
+  ![Imgur](https://i.imgur.com/0xwmyzd.png)
   
   Detail reports page:
   
